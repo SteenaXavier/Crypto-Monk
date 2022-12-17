@@ -12,59 +12,60 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    coinDetailsController.fetchDetails();
     return Scaffold(
       backgroundColor: kscaffoldBG,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
-      body: Obx(() {
-        // if (coinDetailsController.isLoading.value) {
-        //   return Center(
-        //     child: const CircularProgressIndicator(),
-        //   );
-        // } else {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              CryptoCard(
-                coinForApi: 'bitcoin',
-                cryptoCurrency: coinDetailsController.bitcoinSymbol.value,
-                subtitle: coinDetailsController.bitcoinId.value,
-                icon: const Icon(CryptoFontIcons.BTC),
-                price: coinDetailsController.bitcoinPriceUSD.value,
-                desc: btc_desc,
-              ),
-              CryptoCard(
-                coinForApi: 'ethereum',
-                cryptoCurrency: coinDetailsController.ethereumSymbol.value,
-                subtitle: coinDetailsController.ethereumId.value,
-                icon: const Icon(CryptoFontIcons.ETH),
-                price: coinDetailsController.ethereumPriceUSD.value.toString(),
-                desc: eth_desc,
-              ),
-              CryptoCard(
-                coinForApi: 'dogecoin',
-                cryptoCurrency:
-                    coinDetailsController.dogecoinSymbol.value.toString(),
-                subtitle: coinDetailsController.dogecoinId.value.toString(),
-                icon: const Icon(CryptoFontIcons.DOGE),
-                price: coinDetailsController.dogecoinPriceUSD.value.toString(),
-                desc: polygon_desc,
-              ),
-              CryptoCard(
-                coinForApi: 'usdt',
-                cryptoCurrency:
-                    coinDetailsController.usdtSymbol.value.toString(),
-                subtitle: coinDetailsController.usdtId.value.toString(),
-                icon: const Icon(CryptoFontIcons.USDT),
-                price: coinDetailsController.usdtPriceUSD.value.toString(),
-                desc: bnb_desc,
-              ),
-            ],
-          );
-        }
+      body: Obx(
+        () {
+          if (coinDetailsController.isLoading.value) {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          } else {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                CryptoCard(
+                  coinForApi: 'bitcoin',
+                  cryptoCurrency: coinDetailsController.bitcoinSymbol.value,
+                  subtitle: coinDetailsController.bitcoinId.value,
+                  icon: const Icon(CryptoFontIcons.BTC),
+                  price: coinDetailsController.bitcoinPriceUSD.value,
+                  desc: btc_desc,
+                ),
+                CryptoCard(
+                  coinForApi: 'ethereum',
+                  cryptoCurrency: coinDetailsController.ethereumSymbol.value,
+                  subtitle: coinDetailsController.ethereumId.value,
+                  icon: const Icon(CryptoFontIcons.ETH),
+                  price:
+                      coinDetailsController.ethereumPriceUSD.value.toString(),
+                  desc: eth_desc,
+                ),
+                CryptoCard(
+                  coinForApi: 'dogecoin',
+                  cryptoCurrency:
+                      coinDetailsController.dogecoinSymbol.value.toString(),
+                  subtitle: coinDetailsController.dogecoinId.value.toString(),
+                  icon: const Icon(CryptoFontIcons.DOGE),
+                  price:
+                      coinDetailsController.dogecoinPriceUSD.value.toString(),
+                  desc: polygon_desc,
+                ),
+                CryptoCard(
+                  coinForApi: 'usdt',
+                  cryptoCurrency:
+                      coinDetailsController.usdtSymbol.value.toString(),
+                  subtitle: coinDetailsController.usdtId.value.toString(),
+                  icon: const Icon(CryptoFontIcons.USDT),
+                  price: coinDetailsController.usdtPriceUSD.value.toString(),
+                  desc: bnb_desc,
+                ),
+              ],
+            );
+          }
+        },
       ),
     );
   }

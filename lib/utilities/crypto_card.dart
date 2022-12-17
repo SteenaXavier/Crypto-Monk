@@ -17,7 +17,6 @@ class CryptoCard extends StatelessWidget {
       required this.icon,
       required this.price,
       required this.desc});
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

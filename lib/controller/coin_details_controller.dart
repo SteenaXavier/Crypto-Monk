@@ -7,7 +7,7 @@ const baseURL = "api.coincap.io";
 const api = "/v2/assets/";
 
 class CoinDetailsController extends GetxController {
-  
+
   var bitcoinId = "No data".obs;
   var bitcoinRank = "No data".obs;
   var bitcoinSymbol = "No data".obs;
@@ -48,9 +48,9 @@ class CoinDetailsController extends GetxController {
         var jsonString = response.body;
         var json = jsonDecode(jsonString);
         print(json['data'][0]['id']);
-        bitcoinId.value = json['data'][0]['id'];
-        bitcoinRank.value = json['data'][0]['rank'];
-        bitcoinSymbol.value = json['data'][0]['symbol'];
+        bitcoinId.value = json['data'][0]['id'].toString();
+        bitcoinRank.value = json['data'][0]['rank'].toString();
+        bitcoinSymbol.value = json['data'][0]['symbol'].toString();
         bitcoinPriceUSD.value = json['data'][0]['prceUsd'];
         bitcoinMarketCapUsd.value = json['data'][0]['marketCapUsd'];
 

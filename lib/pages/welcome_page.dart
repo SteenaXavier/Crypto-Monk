@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class WelcomePage extends StatelessWidget {
   WelcomePage({super.key});
-  final coinDetailsController = Get.put(CoinDetailsController());
+  
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class WelcomePage extends StatelessWidget {
           GestureDetector(
               child: Icon(Icons.abc),
               onTap: () {
-                coinDetailsController.fetchDetails();
+                
                 Get.to(() => HomePage());
                 // Get.to(HomePage());
               }),
